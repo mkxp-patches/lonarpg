@@ -1,0 +1,15 @@
+--- a/Data/Scripts/70_CreateLoadingScreen.rb
++++ b/Data/Scripts/70_CreateLoadingScreen.rb
+@@ -96,9 +96,11 @@
+ 	def update(tmp_text)
+ 		@count += 1
+ 		next_text(tmp_text)
+-		if @count >= @countTar
++		now = Time.now.to_f
++		if @jp_last_upd.nil? || (now - @jp_last_upd) >= 0.25
+ 			next_pic
+ 			Graphics.update
++			@jp_last_upd = now
+ 			@count = 0
+ 		end
+ 	end

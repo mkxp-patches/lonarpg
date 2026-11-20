@@ -1,0 +1,11 @@
+--- a/Data/Scripts/20_RubyTool.rb
++++ b/Data/Scripts/20_RubyTool.rb
+@@ -67,7 +67,7 @@
+         #1234567
+         $PRP_REC = $PRP_REC.last(26) if $PRP_REC.length >= 27
+         $PRP_REC << [val,color]
+-        p val
++        p val if $TEST
+     end
+ end
+ class ::Hash

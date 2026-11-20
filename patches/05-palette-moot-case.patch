@@ -1,0 +1,15 @@
+--- a/ModScripts/PaletteChanger/9999_DEFAULT_Races.json
++++ b/ModScripts/PaletteChanger/9999_DEFAULT_Races.json
+@@ -851,9 +851,9 @@
+ 		"palette_old": ["source_mc/eyes.act",
+ 						"source_mc/skin.act",
+ 						"source_mc/skin_h.act"],
+-		"palette_new": ["race/moot/eyes_moot.act",
+-						"race/moot/skin_moot.act",
+-						"race/moot/skin_h_moot.act"]
++		"palette_new": ["race/Moot/eyes_moot.act",
++						"race/Moot/skin_moot.act",
++						"race/Moot/skin_h_moot.act"]
+ 	},
+ 	{
+ 		"name": "preDeepone",

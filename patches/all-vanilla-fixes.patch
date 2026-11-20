@@ -1,0 +1,61 @@
+--- a/Data/Scripts/0_CommandLineArgs.rb
++++ b/Data/Scripts/0_CommandLineArgs.rb
+@@ -208,5 +208,6 @@
+ # My code
+ #===============================================================================
+ fnGetCommandLine = Win32API.new("Kernel32", "GetCommandLine", "", "P")
+-ARGV = Shellwords.shellwords(fnGetCommandLine.call)
++_cmd = fnGetCommandLine.call
++ARGV = _cmd.is_a?(String) ? Shellwords.shellwords(_cmd) : []
+ ARGV.shift
+--- a/Data/Scripts/20_RubyTool.rb
++++ b/Data/Scripts/20_RubyTool.rb
+@@ -67,7 +67,7 @@
+         #1234567
+         $PRP_REC = $PRP_REC.last(26) if $PRP_REC.length >= 27
+         $PRP_REC << [val,color]
+-        p val
++        p val if $TEST
+     end
+ end
+ class ::Hash
+--- a/Data/Scripts/50_Create_GameLonaINI.rb
++++ b/Data/Scripts/50_Create_GameLonaINI.rb
+@@ -54,7 +54,5 @@
+ end
+ 
+ 
+-sleep 0.1
+ $LonaINI = IniFile.load(userDir + "GameLona.ini")
+ $GameINI = IniFile.load("Game.ini")
+-sleep 0.9
+--- a/Data/Scripts/70_CreateLoadingScreen.rb
++++ b/Data/Scripts/70_CreateLoadingScreen.rb
+@@ -96,9 +96,11 @@
+ 	def update(tmp_text)
+ 		@count += 1
+ 		next_text(tmp_text)
+-		if @count >= @countTar
++		now = Time.now.to_f
++		if @jp_last_upd.nil? || (now - @jp_last_upd) >= 0.25
+ 			next_pic
+ 			Graphics.update
++			@jp_last_upd = now
+ 			@count = 0
+ 		end
+ 	end
+--- a/ModScripts/PaletteChanger/9999_DEFAULT_Races.json
++++ b/ModScripts/PaletteChanger/9999_DEFAULT_Races.json
+@@ -851,9 +851,9 @@
+ 		"palette_old": ["source_mc/eyes.act",
+ 						"source_mc/skin.act",
+ 						"source_mc/skin_h.act"],
+-		"palette_new": ["race/moot/eyes_moot.act",
+-						"race/moot/skin_moot.act",
+-						"race/moot/skin_h_moot.act"]
++		"palette_new": ["race/Moot/eyes_moot.act",
++						"race/Moot/skin_moot.act",
++						"race/Moot/skin_h_moot.act"]
+ 	},
+ 	{
+ 		"name": "preDeepone",

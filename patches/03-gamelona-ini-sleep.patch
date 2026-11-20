@@ -1,0 +1,10 @@
+--- a/Data/Scripts/50_Create_GameLonaINI.rb
++++ b/Data/Scripts/50_Create_GameLonaINI.rb
+@@ -54,7 +54,5 @@
+ end
+ 
+ 
+-sleep 0.1
+ $LonaINI = IniFile.load(userDir + "GameLona.ini")
+ $GameINI = IniFile.load("Game.ini")
+-sleep 0.9

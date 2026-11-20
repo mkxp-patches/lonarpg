@@ -1,0 +1,10 @@
+--- a/Data/Scripts/0_CommandLineArgs.rb
++++ b/Data/Scripts/0_CommandLineArgs.rb
+@@ -208,5 +208,6 @@
+ # My code
+ #===============================================================================
+ fnGetCommandLine = Win32API.new("Kernel32", "GetCommandLine", "", "P")
+-ARGV = Shellwords.shellwords(fnGetCommandLine.call)
++_cmd = fnGetCommandLine.call
++ARGV = _cmd.is_a?(String) ? Shellwords.shellwords(_cmd) : []
+ ARGV.shift
