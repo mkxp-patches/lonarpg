@@ -1,5 +1,7 @@
 # LonaRPG — JoiPlay Performance, Compatibility & Boot Cache Patch
 
+> **Disclaimer:** Unofficial community performance & compatibility patch. This repository contains no copyrighted game assets, archives, or full game scripts, and requires an existing copy of the base game.
+
 Performance, Android compatibility, and startup boot-cache optimizations for **LonaRPG B.0.10.7.5** running on **JoiPlay** (`libmkxp19.so`, Ruby 1.9.2, RGSS3).
 
 ## Measured Results (POCO F6 / Android 16 / JoiPlay `libmkxp19.so`)
